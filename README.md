@@ -15,3 +15,8 @@ random class from that group.
 Please contribute! This package will be much more fun if not limited to the
 measily initial set of options. Obviously, racist, sexist, or other bullshit
 jokes are not welcome.
+
+## Example
+
+```python
+```
