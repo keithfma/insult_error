@@ -21,13 +21,17 @@ from insult_error import InsultError
 
 # raise a random insult with a random message (defaults to "PG" rating)
 raise InsultError()
+# >>> NotThisAgain: Don't believe everything you think.
 
 # raise a random insult with a user-specified message
 raise InsultError('This is my message')
+# >>> NotThisAgain: This is my message
 
 # raise a random insult with <= PG rating
 raise InsultError(rating="PG")
+# >>> ForGodsSake: I don’t have the time or the crayons to explain this to you.
 
 # raise a random insult with <= R rating
 raise InsultError(rating="R")
+# >>> FuckYouBuddy: I envy people who have never met you.
 ```

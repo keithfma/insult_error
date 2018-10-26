@@ -86,6 +86,6 @@ class InsultError(Exception):
             message = random.choice(messages[rating])
             args = tuple([message])
         # select and return insulting exception 
-        insult = random.choice(insults[None])
+        insult = random.choice(insults[rating])
         return insult(*args, **kwargs)
 
