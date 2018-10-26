@@ -3,20 +3,31 @@
 This package provides a set of insulting exceptions you can use to make your
 future self laugh, bother your collaborators, or both.
 
-The basic approach is to subclass Exception with a silly name, but otherwise
-preserve the expected functionality (e.g., allow for a useful message so that
-using these exceptions doesn't make your code toooo much worse).
-
-The various options are grouped loosely by a "rating" indicating the chances
-you will offend someone (or yourself) by using them. You can raise specific 
-exceptions directly, or raise one of the rating-level exceptions to get a
-random class from that group. 
+The core feature is the `InsultError` exception class, which behaves just like
+a normal exception with a few differences:
+1. The raised error is a randomly-selected subclass with a silly, insulting name
+2. If no message is provided, the error will use a random insulting message
+3. A special keyword argument `rating` provides some control over how offensive
+   you want the error and message to be
 
 Please contribute! This package will be much more fun if not limited to the
 measily initial set of options. Obviously, racist, sexist, or other bullshit
 jokes are not welcome.
 
-## Example
+## Example Usage
 
 ```python
+from insult_error import InsultError
+
+# raise a random insult with a random message (defaults to "PG" rating)
+raise InsultError()
+
+# raise a random insult with a user-specified message
+raise InsultError('This is my message')
+
+# raise a random insult with <= PG rating
+raise InsultError(rating="PG")
+
+# raise a random insult with <= R rating
+raise InsultError(rating="R")
 ```
