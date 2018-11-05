@@ -38,17 +38,28 @@ never_met_you = InsultMessage(
     rating='PG')
 
 underestimate = InsultMessage(
-    message="You’re impossible to underestimate.",
+    message="You're impossible to underestimate.",
     rating='PG')
 
 crayons = InsultMessage(
-    message="I don’t have the time or the crayons to explain this to you.",
+    message="I don't have the time or the crayons to explain this to you.",
     rating='PG')
 
 dont_believe = InsultMessage(
     message="Don't believe everything you think.",
     rating='PG')
 
+day_job = InsultMessage(
+    message="I hope this isn't your day job.",
+    rating="PG")
+
+kill_mom = InsultMessage(
+    message="You're killing your mother right now.",
+    rating="PG")
+
+fast_food = InsultMessage(
+    message="I hear that fast food place is still hiring.",
+    rating="PG")
 
 # generic insulting exception ------------------------------------------------
 # TODO: switch to a max_rating scheme, so I can use PG for R and not the reverse
