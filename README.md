@@ -17,7 +17,7 @@ jokes are not welcome.
 ## Example Usage
 
 ```python
-from insult_error import InsultError
+from insult_error import InsultError, InsultErrors
 
 # raise a random insult with a random message (defaults to "PG" rating)
 raise InsultError()
@@ -34,4 +34,15 @@ raise InsultError(rating="PG")
 # raise a random insult with <= R rating
 raise InsultError(rating="R")
 # >>> FuckYouBuddy: I envy people who have never met you.
+
+# catch any of the insult_error exception classes
+try:
+    raise InsultError()
+except InsultErrors
+    print('Better luck next time!')
+# >>> Better luck next time!
 ```
+
+One annoying bit of trivia: if you want a random insult exception class, you
+must raise the error with parenthesis (i.e., `raise InsultError()` and not
+`raise InsultError`)

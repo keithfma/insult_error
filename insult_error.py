@@ -86,6 +86,7 @@ for msg_info in inspect.getmembers(sys.modules[__name__], is_message):
         if rating_levels[msg.rating] <= rating_levels[this]:
             messages[this].append(msg.message)
 
+
 class InsultError(Exception):
 
     def __new__(cls, *args, rating=None, **kwargs):
@@ -100,3 +101,9 @@ class InsultError(Exception):
         insult = random.choice(insults[rating])
         return insult(*args, **kwargs)
 
+# generate tuple of all exception classes, for use in try-except clauses
+InsultErrors = []
+for insult_info in inspect.getmembers(sys.modules[__name__], is_exception):
+    insult = insult_info[1]
+    InsultErrors.append(insult)
+InsultErrors = tuple(InsultErrors)
