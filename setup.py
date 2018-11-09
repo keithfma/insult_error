@@ -5,7 +5,7 @@ with open('README.rst', 'r') as fp:
 
 setup(
     name="insult_error",
-    version="0.2.0",
+    version="0.2.1",
     description='Intentionally insulting exceptions',
     long_description=readme,
     author="Keith Ma",
