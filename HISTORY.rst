@@ -1,6 +1,13 @@
 Insult Error Change Log
 =======================
 
+v0.2.1
+------
+
+-  Added insults from XKCD "code quality" series, with attribution
+-  Some of these new insults are commented out until a future date when
+   we have more non-XKCD insult to balance them out.
+
 v0.2.0
 ------
 
