@@ -20,10 +20,10 @@ class InsultError(Exception):
 Name = namedtuple('Name', ('name', 'rating'))
 
 names = [
-    Name(name='FuckYouBuddy', rating=5),
-    Name(name='NotThisAgain', rating=1),
-    Name(name='ForGodsSake', rating=1),
-    Name(name='AreYouSerious', rating=1),
+    Name(rating=5, name='FuckYouBuddy'),
+    Name(rating=1, name='NotThisAgain'),
+    Name(rating=1, name='ForGodsSake'),
+    Name(rating=1, name='AreYouSerious'),
     ]
 
 
@@ -33,14 +33,14 @@ names = [
 Message = namedtuple('Message', ('msg', 'rating'))
 
 messages = [
-    Message(msg="Your program is bad and you should feel bad", rating=1),
-    Message(msg="I envy people who have never met you", rating=1),
-    Message(msg="You're impossible to underestimate", rating=1),
-    Message(msg="I don't have the time or the crayons to explain this to you", rating=1),
-    Message(msg="Don't believe everything you think", rating=1),
-    Message(msg="I hope this isn't your day job", rating=1),
-    Message(msg="You're killing your mother right now", rating=1),
-    Message(msg="I hear that fast food place is still hiring", rating=1),
-    Message(msg="If you were on fire and I had water, I'd drink it.", rating=1),
+    Message(rating=1, msg="Your program is bad and you should feel bad"),
+    Message(rating=1, msg="I envy people who have never met you"),
+    Message(rating=1, msg="You're impossible to underestimate"),
+    Message(rating=1, msg="I don't have the time or the crayons to explain this to you"),
+    Message(rating=1, msg="Don't believe everything you think"),
+    Message(rating=1, msg="I hope this isn't your day job"),
+    Message(rating=1, msg="You're killing your mother right now"),
+    Message(rating=1, msg="I hear that fast food place is still hiring"),
+    Message(rating=1, msg="If you were on fire and I had water, I'd drink it."),
     ]
 
