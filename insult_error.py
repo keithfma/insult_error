@@ -1,109 +1,46 @@
-import sys
-import inspect
 import random
-from collections import namedtuple, defaultdict
-
-rating_levels = {
-    None: 0,
-    'PG': 0,
-    'R': 1
-    }
-
-# insulting exception classes ------------------------------------------------
-
-
-class FuckYouBuddy(Exception):
-    rating='R'
-
-
-class NotThisAgain(Exception):
-    rating='PG'
-
-
-class ForGodsSake(Exception):
-    rating='PG'
-
-
-# insulting error messages ---------------------------------------------
-
-
-InsultMessage = namedtuple('InsultMessage', ['message', 'rating'])
-
-feel_bad = InsultMessage(
-    message='Your program is bad and you should feel bad',
-    rating='PG')
-
-never_met_you = InsultMessage(
-    message="I envy people who have never met you.",
-    rating='PG')
-
-underestimate = InsultMessage(
-    message="You're impossible to underestimate.",
-    rating='PG')
-
-crayons = InsultMessage(
-    message="I don't have the time or the crayons to explain this to you.",
-    rating='PG')
-
-dont_believe = InsultMessage(
-    message="Don't believe everything you think.",
-    rating='PG')
-
-day_job = InsultMessage(
-    message="I hope this isn't your day job.",
-    rating="PG")
-
-kill_mom = InsultMessage(
-    message="You're killing your mother right now.",
-    rating="PG")
-
-fast_food = InsultMessage(
-    message="I hear that fast food place is still hiring.",
-    rating="PG")
-
-# generic insulting exception ------------------------------------------------
-# TODO: switch to a max_rating scheme, so I can use PG for R and not the reverse
-
-def is_exception(obj):
-    return inspect.isclass(obj) and issubclass(obj, Exception)
-
-def is_message(obj):
-    return isinstance(obj, InsultMessage)
-
-# generate dictionary of exception classes for each rating
-insults = defaultdict(list)
-for insult_info in inspect.getmembers(sys.modules[__name__], is_exception):
-    insult = insult_info[1]
-    for this in rating_levels.keys():
-        if rating_levels[insult.rating] <= rating_levels[this]:
-            insults[this].append(insult)
-
-# generate dictionary of exception messages for each rating
-messages = defaultdict(list)
-for msg_info in inspect.getmembers(sys.modules[__name__], is_message):
-    msg = msg_info[1]
-    for this in rating_levels.keys():
-        if rating_levels[msg.rating] <= rating_levels[this]:
-            messages[this].append(msg.message)
+from collections import namedtuple
 
 
 class InsultError(Exception):
-
-    def __new__(cls, *args, rating=None, **kwargs):
-        if not rating in insults:
-            # fail if user selects an invalid rating
-            raise ValueError('Invalid rating argument for InsultError exception')
+    def __init__(self, *args, rating=5):
+        # hack the error name to be a random insult rated <= rating
+        name = random.choice([x.name for x in names if x.rating <= rating])
+        self.__class__.__name__ = name
+        # if no message is provided, select a random insult
         if not args:
-            # no message, pick one
-            message = random.choice(messages[rating])
-            args = tuple([message])
-        # select and return insulting exception 
-        insult = random.choice(insults[rating])
-        return insult(*args, **kwargs)
+            msg = random.choice([x.msg for x in messages if x.rating <= rating])
+            args = (msg,)
+        self.args = args
 
-# generate tuple of all exception classes, for use in try-except clauses
-InsultErrors = []
-for insult_info in inspect.getmembers(sys.modules[__name__], is_exception):
-    insult = insult_info[1]
-    InsultErrors.append(insult)
-InsultErrors = tuple(InsultErrors)
+
+# insulting error names ----------
+
+
+Name = namedtuple('Name', ('name', 'rating'))
+
+names = [
+    Name(name='FuckYouBuddy', rating=5),
+    Name(name='NotThisAgain', rating=1),
+    Name(name='ForGodsSake', rating=1),
+    Name(name='AreYouSerious', rating=1),
+    ]
+
+
+# insulting error messages ----------
+
+
+Message = namedtuple('Message', ('msg', 'rating'))
+
+messages = [
+    Message(msg="Your program is bad and you should feel bad", rating=1),
+    Message(msg="I envy people who have never met you", rating=1),
+    Message(msg="You're impossible to underestimate", rating=1),
+    Message(msg="I don't have the time or the crayons to explain this to you", rating=1),
+    Message(msg="Don't believe everything you think", rating=1),
+    Message(msg="I hope this isn't your day job", rating=1),
+    Message(msg="You're killing your mother right now", rating=1),
+    Message(msg="I hear that fast food place is still hiring", rating=1),
+    Message(msg="If you were on fire and I had water, I'd drink it.", rating=1),
+    ]
+

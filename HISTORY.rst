@@ -1,6 +1,17 @@
 Insult Error Change Log
 =======================
 
+v0.2.0
+------
+
+-  Overhauled implementation to make everything much simpler
+-  Fixed "bug" that prevented showing different error classes when user
+   called raise with Insult error class, not instance
+-  Fixed crummy workaround where users had to use a special list in
+   try-except clauses
+-  Changed to a 1-10 rating system, which made it easier to assign
+   ratings and easier to use them
+
 v0.1.1
 ------
 
