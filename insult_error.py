@@ -51,33 +51,33 @@ messages = [
     Message(rating=1, msg=(
         "It's like someone took a transcript of a couple arguing at Ikea and "
         "made random edits until it compiled without errors [xkcd.com/1513]")),
-    Message(rating=1, msg=(
-        "It's like you ran OCR on a photo of a scrabble game board from a game "
-        "where Javascript reserved words counted for triple points "
-        "[xkcd.com/1695]")),
-    Message(rating=1, msg=(
-        "It looks like someone transcribed a naval weather forecast while "
-        "woodpeckers hammered thier shift keys, then randomely indented it"
-        "[xkcd.com/1695]")),
-    Message(rating=1, msg=(
-        "It's like an E.E. Cummings poem written using only the usernames a "
-        "website suggests when the one you want is taken [xkcd.com/1695]")), 
-    Message(rating=1, msg=(
-        "This looks like the output of a Markov bot that's been fed bus "
-        "timetables from a city where the buses crash constantly [xkcd.com/1695]")),
-    Message(rating=1, msg=(
-        "Your code looks like song lyrics written using only the stuff that "
-        "comes after the question mark in a URL [xkcd.com/1833]")),
-    Message(rating=1, msg=(
-        "It's like a JSON table of model numbers for flashlights with "
-        "'tactical' in thier names [xkcd.com/1833]")),
-    Message(rating=1, msg=(
-        "Your code looks like you read Turing's 1936 paper on computing and a "
-        "page of Javascipt example code and guessed at everything in between "
-        "[xkcd.com/1833]")), 
-    Message(rating=1, msg=(
-        "It's like a leet-speak translation of a manifesto by a survivalist"
-        "cult leader who's for some reason obsessed with memory allocation"
-        "[xkcd.com/1833]")),
+    # Message(rating=1, msg=(
+    #     "It's like you ran OCR on a photo of a scrabble game board from a game "
+    #     "where Javascript reserved words counted for triple points "
+    #     "[xkcd.com/1695]")),
+    # Message(rating=1, msg=(
+    #     "It looks like someone transcribed a naval weather forecast while "
+    #     "woodpeckers hammered thier shift keys, then randomely indented it"
+    #     "[xkcd.com/1695]")),
+    # Message(rating=1, msg=(
+    #     "It's like an E.E. Cummings poem written using only the usernames a "
+    #     "website suggests when the one you want is taken [xkcd.com/1695]")), 
+    # Message(rating=1, msg=(
+    #     "This looks like the output of a Markov bot that's been fed bus "
+    #     "timetables from a city where the buses crash constantly [xkcd.com/1695]")),
+    # Message(rating=1, msg=(
+    #     "Your code looks like song lyrics written using only the stuff that "
+    #     "comes after the question mark in a URL [xkcd.com/1833]")),
+    # Message(rating=1, msg=(
+    #     "It's like a JSON table of model numbers for flashlights with "
+    #     "'tactical' in thier names [xkcd.com/1833]")),
+    # Message(rating=1, msg=(
+    #     "Your code looks like you read Turing's 1936 paper on computing and a "
+    #     "page of Javascipt example code and guessed at everything in between "
+    #     "[xkcd.com/1833]")), 
+    # Message(rating=1, msg=(
+    #     "It's like a leet-speak translation of a manifesto by a survivalist"
+    #     "cult leader who's for some reason obsessed with memory allocation"
+    #     "[xkcd.com/1833]")),
     ] 
 
