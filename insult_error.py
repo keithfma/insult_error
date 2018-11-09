@@ -1,34 +1,12 @@
 import random
-from pdb import set_trace
 
 
-class InsultError(Exception):
-    def __new__(cls, *args, **kwargs):
-        set_trace()
-        insult_cls = random.choice(InsultErrorOption.__subclasses__())
-        print('CLASS:', insult_cls)
-        if not args:
-            args = tuple([random.choice(messages)])
-        return insult_cls(*args, **kwargs)
-
-
-class InsultErrorOption(InsultError):
-    def __new__(cls, *args, **kwargs):
-        print('CLASS:', cls)
-        return Exception.__new__(cls, *args, **kwargs)
-
-
-class FuckYouBuddy(InsultErrorOption):
-    pass
-
-
-class NotThisAgain(InsultErrorOption):
-    pass
-
-
-class ForGodsSake(InsultErrorOption):
-    pass
-
+errors = [
+    'FuckYouBuddy',
+    'NotThisAgain',
+    'ForGodsSake',
+    'AreYouSerious',
+    ]
 
 messages = [
     "Your program is bad and you should feel bad",
@@ -41,4 +19,15 @@ messages = [
     "I hear that fast food place is still hiring",
     "If you were on fire and I had water, I'd drink it.",
     ]
+
+
+class InsultError(Exception):
+
+    def __init__(self, *args):
+        # hack the error name to be a random insult
+        self.__class__.__name__ = random.choice(errors)
+        # if no message is provided, select a random insult
+        if not args:
+            args = tuple([random.choice(messages)])
+        self.args = args
 
