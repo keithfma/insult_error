@@ -42,10 +42,10 @@ messages = [
     Message(rating=1, msg="You're killing your mother right now"),
     Message(rating=1, msg="I hear that fast food place is still hiring"),
     Message(rating=1, msg="If you were on fire and I had water, I'd drink it."),
+    Message(rating=1, msg="You messed up - don't try again for your own good"),
     Message(rating=1, msg=(
         "This is like being in a house built by a child using nothing but a "
         "hatchet and a picture of a house [xkcd.com/1513]")),
-    Message(rating=1, msg="You messed up - don't try again for your own good")
     Message(rating=1, msg=(
         "It's like a salad recipe written by a corporate lawyer using a phone "
         "autocorrect that only knew excel formulas [xkcd.com/1513]")),
