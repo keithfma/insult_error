@@ -1,9 +1,15 @@
+import sys
 import random
 from collections import namedtuple
 
 
 class InsultError(Exception):
-    def __init__(self, *args, rating=5):
+
+    RATING = 5
+
+    def __init__(self, *args, rating=None):
+        if rating is None:
+            rating = self.RATING
         # hack the error name to be a random insult rated <= rating
         name = random.choice([x.name for x in names if x.rating <= rating])
         self.__class__.__name__ = name
@@ -14,6 +20,16 @@ class InsultError(Exception):
         self.args = args
 
 
+def fuck_you(type, value, traceback):
+    """
+    sys.excepthook standin that injects an error but leaves the traceback
+    """
+    insult_error = InsultError()
+    # Call the original excepthook so we get a traceback printed out
+    sys.__excepthook__(type(insult_error), insult_error, traceback)
+
+sys.excepthook = fuck_you
+
 # insulting error names ----------
 
 
@@ -21,10 +37,12 @@ Name = namedtuple('Name', ('name', 'rating'))
 
 names = [
     Name(rating=5, name='FuckYouBuddy'),
+    Name(rating=5, name='FuckYouFriend'),
+    Name(rating=4, name='FrickYouPal'),
     Name(rating=1, name='NotThisAgain'),
     Name(rating=1, name='ForGodsSake'),
     Name(rating=1, name='AreYouSerious'),
-    ]
+]
 
 
 # insulting error messages ----------
@@ -76,9 +94,9 @@ messages = [
     #     "Your code looks like you read Turing's 1936 paper on computing and a "
     #     "page of Javascipt example code and guessed at everything in between "
     #     "[xkcd.com/1833]")), 
-    # Message(rating=1, msg=(
-    #     "It's like a leet-speak translation of a manifesto by a survivalist"
-    #     "cult leader who's for some reason obsessed with memory allocation"
-    #     "[xkcd.com/1833]")),
-    ] 
+    Message(rating=1, msg=(
+        "It's like a leet-speak translation of a manifesto by a survivalist"
+        "cult leader who's for some reason obsessed with memory allocation"
+        "[xkcd.com/1833]")),
+] 
 
