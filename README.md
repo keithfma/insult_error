@@ -20,7 +20,7 @@ Please contribute! This package will be much more fun if not limited to the
 measly initial set of options. Obviously, racist, sexist, or other bullshit
 jokes are not welcome.
 
-## InsultError Example Usage
+### `InsultError` Example Usage
 
 ```python
 from insult_error import InsultError
@@ -49,7 +49,7 @@ except InsultError:
 # >>> Better luck next time!
 ```
 
-## `always_insult_me` Example Usage
+### `always_insult_me` Example Usage
 
 ```python
 from insult_error import always_insult_me, dont_always_insult_me
