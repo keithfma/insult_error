@@ -49,7 +49,7 @@ except InsultError:
 # >>> Better luck next time!
 ```
 
-# `always_insult_me` Example Usage
+## `always_insult_me` Example Usage
 
 ```python
 from insult_error import always_insult_me, dont_always_insult_me
