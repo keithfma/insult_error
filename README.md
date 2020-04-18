@@ -7,14 +7,15 @@ future self laugh, bother your collaborators, or both.
 
 The core feature is the `InsultError` exception class, which behaves just like
 a normal exception with a few differences:
-1. The raised error is a randomly-selected subclass with a silly, insulting name
+1. The raised error is a given a randomly-selected insulting name
 2. If no message is provided, the error will use a random insulting message
 3. A special keyword argument `rating` provides some control over how offensive
    you want the error and message to be (1 being tamest and 10 being meanest)
    
 To start the abuse, you can either explicitly raise `InsultError`s in your code,
 or you can call `always_insult_me` to convert all unhandled exceptions to insults.
-This works by wrapping `sys.excepthook`, so your stack traces should not be changed.
+This works by wrapping `sys.excepthook` such that the error is changed, but your
++stack trace is not.
 
 Please contribute! This package will be much more fun if not limited to the
 measly initial set of options. Obviously, racist, sexist, or other bullshit
